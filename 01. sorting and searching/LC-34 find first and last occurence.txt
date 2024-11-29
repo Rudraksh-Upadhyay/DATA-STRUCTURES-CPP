@@ -1,0 +1,62 @@
+class Solution {
+public:
+
+    void lastOccurence(vector<int> arr, int n, int target, int &ans){
+        int s =0;
+        int e = n-1;
+        int mid = s + (e-s)/2;
+
+        while(s <= e){
+            if(target == arr[mid]){
+                ans = mid;
+                s = mid+1;
+            }
+            if(target > arr[mid]){
+                s = mid+1;
+            }
+            if(target < arr[mid]){
+                e = mid-1;
+            }
+            //yeh mei bhul jata hu
+            mid = s + (e-s)/2;
+        }
+    }
+
+    void firstOccurence(vector<int> arr, int n, int target, int &ans){
+        int s = 0;
+        int e = n-1;
+        int mid = s + (e-s)/2;
+
+        while(s <= e){
+            
+            if (arr[mid] == target){
+                // means-> first occurence ho bhi sakta hai nahi bhi
+                ans = mid;
+                e = mid-1;
+            }
+
+            if (target < arr[mid]){
+                e = mid-1;
+            }
+            if(target > arr[mid]){
+                s = mid+1;
+            }
+
+            mid = s + (e-s)/2;
+        }
+
+    }
+    
+    vector<int> searchRange(vector<int>& nums, int target) {
+
+        int first = -1;
+        int last = -1;
+        firstOccurence(nums, nums.size(), target, first);
+        lastOccurence(nums, nums.size(), target, last);
+
+        vector<int> ans;
+        ans.push_back(first);
+        ans.push_back(last);
+        return ans;
+    }
+};
