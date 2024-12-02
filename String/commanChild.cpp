@@ -2,6 +2,8 @@
 #include<unordered_map>
 #include<vector>
 
+#include<unordered_set>
+
 
 using namespace std;
 
@@ -73,6 +75,20 @@ class Solution{
 
         return maxi;
     }
+
+
+    unordered_set<string> uniqueSubstrings(const string &s){
+        unordered_set<string> substringSet;
+
+        for(int i=0; i<s.length(); ++i){
+            for(int j=i+1; j<=s.length(); j++){
+                substringSet.insert(s.substr(i, j-i));
+            }
+        }
+
+        return substringSet;
+    }
+    
 };
 
 int main(){
@@ -82,9 +98,19 @@ int main(){
     string s1 = "HARRY";
     string s2 = "SALLY";
 
-    int ans = sol.LargestCommonChild(s1, s2);
+    // int ans = sol.LargestCommonChild(s1, s2);
+    // cout << ans <<endl;
 
-    cout << ans <<endl;
+    cout << "Unique substring:\n" << endl;
+    int count = 0;
+    unordered_set<string> result = sol.uniqueSubstrings(s1);
+    for(const auto substr : result){
+        cout << substr << endl;
+        count++;
+    }
+
+    cout << count << endl;
+
 
     return 0;
 }
