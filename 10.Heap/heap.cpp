@@ -70,7 +70,7 @@ class Heap{
 
         }
 
-        void heapify(int* arr, int n, int currIndex){
+        void heapify(int* arr, int n, int currIndex){   
             // n->number of elements in heap
             int i = currIndex;
             int leftIndex = 2*i;
