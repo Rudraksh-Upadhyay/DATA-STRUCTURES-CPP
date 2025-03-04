@@ -73,9 +73,6 @@ int main(){
 
     vector<int> heights = {2, 2, 2};
     Solution sol = Solution();
-
-    
-
     
     cout << sol.largestRectangleArea(heights) << endl;
 

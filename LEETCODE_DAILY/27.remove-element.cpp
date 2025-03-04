@@ -1,3 +1,8 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
 /*
  * @lc app=leetcode id=27 lang=cpp
  *
