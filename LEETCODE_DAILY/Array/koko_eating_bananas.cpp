@@ -9,7 +9,7 @@ class Solution{
 
     bool isPossible(vector<int>& piles, int mid, int h){
         int n = piles.size();
-        int hours = 0;
+        long long  hours = 0;
 
         for(int i=0; i<n; i++){
             // hours += ceil(piles[i] / mid);
